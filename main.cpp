@@ -2,14 +2,14 @@
 // Created by yanyuhl on 18-4-6.
 //
 #include <cstdlib>
-#include <list>
+#include <forward_list>
 #include <vector>
 #include <iostream>
 
 using namespace std;
 
 typedef vector<char> utf_8_char;
-typedef list<utf_8_char> utf_8_list;
+typedef forward_list<utf_8_char> utf_8_list;
 typedef long long ll;
 
 bool getNByteUTF_8(utf_8_list &ulist, int n) {
@@ -19,7 +19,7 @@ bool getNByteUTF_8(utf_8_list &ulist, int n) {
             for (int i = 0; i < ((1 << 7) - 1); ++i) {
                 utf_8_char uc;
                 uc.push_back(static_cast<char>(i));
-                ulist.push_back(uc);
+                ulist.push_front(uc);
             }
             return true;
         default:
